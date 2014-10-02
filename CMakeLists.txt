@@ -4,6 +4,7 @@ project(ProjectS)
 FIND_PACKAGE(Qt4 COMPONENTS QtCore QtGui QtOpenGL REQUIRED)
 INCLUDE(${QT_USE_FILE})
 
+qt4_wrap_ui(./mainwindow.ui)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} .)
 
 find_package(GLUT REQUIRED)
@@ -25,7 +26,7 @@ endif(NOT OPENGL_FOUND)
 cmake_minimum_required(VERSION 2.8)
 
 aux_source_directory(. SRC_LIST)
-ADD_EXECUTABLE(${PROJECT_NAME} ${SRC_LIST} ${PROJECTS_UIS_HDRS})
+ADD_EXECUTABLE(${PROJECT_NAME} ${SRC_LIST} ${PROJECTS_UIS_HDRS} )
 
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} ${QT_LIBRARIES})
 
